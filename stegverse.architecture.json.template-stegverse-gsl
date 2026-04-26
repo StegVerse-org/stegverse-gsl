@@ -1,0 +1,90 @@
+{
+  "$schema": "https://stegverse.org/schemas/architecture_manifest.schema.json",
+  "schema_version": "1.0.0",
+  "repo_id": "stegverse-gsl",
+  "repo_type": "lifecycle",
+  "description": "Governed Simulation Lifecycle (GSL) \u2014 request admission, buildout, sandbox execution, and receipt-bound output release.",
+  "inherits_from": null,
+  "enforcement": "strict",
+  "expected_structure": {
+    "docs/architecture/ARCHITECTURE.md": {
+      "required": true,
+      "purpose": "Canonical architecture documentation"
+    },
+    "docs/architecture/decisions/": {
+      "required": true,
+      "purpose": "Architecture Decision Records"
+    },
+    "README.md": {
+      "required": true,
+      "purpose": "Project overview"
+    },
+    "LICENSE": {
+      "required": true,
+      "purpose": "Software license"
+    },
+    ".github/workflows/": {
+      "required": true,
+      "purpose": "CI/CD workflows"
+    },
+    "requirements.txt": {
+      "required": true,
+      "purpose": "Runtime dependencies"
+    },
+    "pyproject.toml": {
+      "required": false,
+      "purpose": "Modern Python packaging"
+    },
+    "tests/": {
+      "required": true,
+      "purpose": "Test suite"
+    },
+    "src/gsl/": {
+      "required": true,
+      "purpose": "GSL lifecycle engine"
+    },
+    "lifecycle/": {
+      "required": true,
+      "purpose": "Lifecycle stage definitions"
+    },
+    "schemas/": {
+      "required": true,
+      "purpose": "GSL schemas"
+    }
+  },
+  "file_rules": {
+    "naming_conventions": {
+      "python_modules": "snake_case",
+      "classes": "PascalCase",
+      "functions": "snake_case",
+      "test_files": "test_*.py"
+    },
+    "forbidden_patterns": [
+      ".*secret.*",
+      ".*password.*",
+      "\\.env$",
+      "\\.pyc$",
+      "__pycache__",
+      ".*\\.tmp$",
+      ".*~$"
+    ]
+  },
+  "migration_rules": {
+    "review_needed_path": "review_needed/",
+    "legacy_path": "legacy/",
+    "wiring_path": "wiring/",
+    "auto_migrate": false,
+    "require_approval": true
+  },
+  "validation_hooks": {
+    "pre_commit": false,
+    "ci_pull_request": true,
+    "ci_push_main": true,
+    "scheduled_audit": "weekly"
+  },
+  "integration_points": {
+    "sdk": "github.com/StegVerse-org/StegVerse-SDK",
+    "demo_suite": "github.com/StegVerse-org/stegverse-demo-suite",
+    "entity_sandbox": "github.com/StegGhost/entity-sandbox-runner"
+  }
+}
