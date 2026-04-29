@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stegverse-gsl"
+version = "1.0.0"
+description = "Governance Specification Language for StegVerse architecture manifests"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "StegVerse", email = "dev@stegverse.org"}
+]
+keywords = ["gsl", "governance", "stegverse", "architecture", "manifest"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "requests>=2.28.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/StegVerse-org/stegverse-gsl"
+Repository = "https://github.com/StegVerse-org/stegverse-gsl"
+Issues = "https://github.com/StegVerse-org/stegverse-gsl/issues"
